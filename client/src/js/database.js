@@ -29,7 +29,7 @@ export const getDb = async () => {
   const jateDb = await openDB(idbDatabase, dbVersion);
   const tx = jateDb.transaction(idbObjectStore, 'readonly');
   const data = await tx.store.get(contentId);
-  return data.text;
+  return data && data.text;
 };
 
 initdb();
