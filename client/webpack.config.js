@@ -26,11 +26,12 @@ module.exports = () => {
         title: 'Webpack Plugin',
       }),
       new MiniCssExtractPlugin(),
-      /*new InjectManifest({
+      /*
+      new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),*/
-      new GenerateSW(),
+      new GenerateSW(), // simplified support for service worker
       new WebpackPwaManifest({
         name: 'Just Another Text Editor',
         short_name: 'JATE',
@@ -62,6 +63,9 @@ module.exports = () => {
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
+          // This option specifies a directory in the build output for images
+          // and adds the original file name to the built image asset
+          // (which might help debugging).
           generator: {
             filename: 'images/[name]-[hash][ext]'
           }
