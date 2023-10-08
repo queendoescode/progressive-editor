@@ -38,5 +38,10 @@ export default class {
       console.log('The editor has lost focus');
       putDb(localStorage.getItem('content'));
     });
+
+    // Make sure text is saved when the window/tab is closed directly
+    this.editor.on('unload', () => {
+      putDb(localStorage.getItem('content'));
+    });
   }
 }
