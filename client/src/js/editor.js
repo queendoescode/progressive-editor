@@ -29,21 +29,18 @@ export default class {
       this.editor.setValue(data || localData || header);
     });
 
-    this.editor.on('change', () => {
+    const saveCurrentText = () => {
       const updatedText = this.editor.getValue();
       localStorage.setItem('content', updatedText);
       putDb(updatedText);
-    });
+    };
+
+    this.editor.on('change', saveCurrentText);
 
     // Save the content of the editor when the editor itself is loses focus
-    this.editor.on('blur', () => {
-      console.log('The editor has lost focus');
-      putDb(localStorage.getItem('content'));
-    });
+    this.editor.on('blur', saveCurrentText);
 
     // Make sure text is saved when the window/tab is closed directly
-    this.editor.on('unload', () => {
-      putDb(localStorage.getItem('content'));
-    });
+    this.editor.on('unload', saveCurrentText);
   }
 }
