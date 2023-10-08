@@ -26,12 +26,11 @@ module.exports = () => {
         title: 'Webpack Plugin',
       }),
       new MiniCssExtractPlugin(),
-      /*
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'service-worker.js',
-      }),*/
-      new GenerateSW(), // simplified support for service worker
+      }),
+      //new GenerateSW(), // simplified support for service worker
       new WebpackPwaManifest({
         name: 'Just Another Text Editor',
         short_name: 'JATE',
