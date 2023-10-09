@@ -30,5 +30,6 @@ registerRoute(({ request }) =>
     request.destination === 'image' ||
     request.destination === 'style' ||
     request.destination === 'script' ||
+    request.destination === 'manifest' ||
     request.mode === 'navigate', // handles only pages (HTML)
   pageCache);
