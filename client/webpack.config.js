@@ -4,11 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path');
 const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-
-
-// TODO: Add CSS loaders and babel to webpack. - DONE
-
 module.exports = () => {
   return {
     mode: 'development',
@@ -52,22 +47,8 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.html$/i,
-          use: 'html-loader'
-        },
-        {
           test: /\.css$/i,
           use: [MiniCssExtractPlugin.loader, 'css-loader'],
-        },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/resource',
-          // This option specifies a directory in the build output for images
-          // and adds the original file name to the built image asset
-          // (which might help debugging).
-          generator: {
-            filename: 'images/[name]-[hash][ext]'
-          }
         },
         {
           test: /\.m?js$/,
