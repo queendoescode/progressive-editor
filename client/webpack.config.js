@@ -27,6 +27,8 @@ module.exports = () => {
       }),
       //new GenerateSW(), // simplified support for service worker
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'Just Another Text Editor',
         short_name: 'JATE',
         description: 'Edit text files offline and online',
