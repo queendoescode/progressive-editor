@@ -7,8 +7,5 @@ Progressive web application that implements a text editor that is installable in
 
 * [GitHub](https://github.com/queendoescode/progressive-editor)
 
-* [Deployed app]( )
+* [Deployed app](https://progressive-editor-995fb73f89c3.herokuapp.com/)
 
-## Third Party Resources used by this site
-
-* 
